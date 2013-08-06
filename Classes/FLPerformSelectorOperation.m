@@ -8,7 +8,6 @@
 //
 
 #import "FLPerformSelectorOperation.h"
-#import "FishLampAsync.h"
 
 @implementation FLPerformSelectorOperation
 

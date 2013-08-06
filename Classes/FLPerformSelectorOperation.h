@@ -7,7 +7,7 @@
 //  The FishLamp Framework is released under the MIT License: http://fishlamp.com/license 
 //
 
-#import "FishLampCore.h"
+#import <FishLampCore/FishLampCore.h>
 #import "FLSynchronousOperation.h"
 
 @interface FLPerformSelectorOperation : FLSynchronousOperation {

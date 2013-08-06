@@ -10,7 +10,7 @@
 #import "FLAsyncQueue.h"
 #import "FLFinisher.h"
 
-#import "FLSelectorPerforming.h"
+#import <FishLampCore/FLSelectorPerforming.h>
 
 NS_INLINE
 void FLDispatchSync(id<FLAsyncQueue> queue, 

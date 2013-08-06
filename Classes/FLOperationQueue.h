@@ -7,8 +7,9 @@
 //  The FishLamp Framework is released under the MIT License: http://fishlamp.com/license 
 //
 
-#import "FLOrderedCollection.h"
 #import "FLOperation.h"
+
+@class FLOrderedCollection;
 
 @interface FLOperationQueue : NSObject<NSFastEnumeration> {
 @private

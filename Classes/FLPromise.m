@@ -8,7 +8,6 @@
 //
 
 #import "FLPromise.h"
-#import "FishLampAsync.h"
 
 @interface FLPromise ()
 @property (readwrite, strong) FLPromisedResult result;

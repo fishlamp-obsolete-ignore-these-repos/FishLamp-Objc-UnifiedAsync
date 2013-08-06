@@ -8,7 +8,6 @@
 //
 
 #import "FLFinisher.h"
-#import "FishLampAsync.h"
 
 @interface FLPromise ()
 - (void) setFinishedWithResult:(FLPromisedResult) result;

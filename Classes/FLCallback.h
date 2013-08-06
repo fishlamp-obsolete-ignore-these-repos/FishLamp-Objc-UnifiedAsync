@@ -7,8 +7,8 @@
 //  The FishLamp Framework is released under the MIT License: http://fishlamp.com/license 
 //
 
-#import "FLCocoaRequired.h"
-#import "FLSelectorPerforming.h"
+#import <FishLampCore/FishLampCore.h>
+#import <FishLampCore/FLSelectorPerforming.h>
 
 //
 // simple callback struct

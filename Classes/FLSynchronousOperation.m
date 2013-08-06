@@ -11,7 +11,6 @@
 #import "FLFinisher.h"
 #import "FLAsyncQueue.h"
 #import "FLObjectStorage.h"
-#import "FishLampAsync.h"
 
 @interface FLSynchronousOperation ()
 @end

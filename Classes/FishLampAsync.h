@@ -7,21 +7,27 @@
 //  The FishLamp Framework is released under the MIT License: http://fishlamp.com/license 
 //
 
-#import "FishLampCore.h"
-#import "FLAsyncBlockTypes.h"
-#import "FLFinisher.h"
-#import "FLAsyncQueue.h"
-#import "FLOperationContext.h"
-#import "FLDispatchQueue.h"
-#import "NSError+FLFailedResult.h"
-#import "FLSuccessfulResult.h"
-#import "FLPromise.h"
-#import "FLPromisedResult.h"
-#import "FLDispatchable.h"
 
-#import "FLBroadcaster.h"
+/**
+@brief: top level include file file for the async piece.
+*/
 
-#import "FLObjectRef.h"
-#import "FLNonretainedObject.h"
-#import "FLRetainedObject.h"
-#import "FLMainThreadObject.h"
+#import <FishLampCore/FishLampCore.h>
+
+#import <FishLampAsync/FLAsyncBlockTypes.h>
+#import <FishLampAsync/FLFinisher.h>
+#import <FishLampAsync/FLAsyncQueue.h>
+#import <FishLampAsync/FLOperationContext.h>
+#import <FishLampAsync/FLDispatchQueue.h>
+#import <FishLampAsync/NSError+FLFailedResult.h>
+#import <FishLampAsync/FLSuccessfulResult.h>
+#import <FishLampAsync/FLPromise.h>
+#import <FishLampAsync/FLPromisedResult.h>
+#import <FishLampAsync/FLDispatchable.h>
+
+#import <FishLampAsync/FLBroadcaster.h>
+
+#import <FishLampAsync/FLObjectRef.h>
+#import <FishLampAsync/FLNonretainedObject.h>
+#import <FishLampAsync/FLRetainedObject.h>
+#import <FishLampAsync/FLMainThreadObject.h>
