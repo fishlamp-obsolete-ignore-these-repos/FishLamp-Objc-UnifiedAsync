@@ -8,6 +8,9 @@
 //
 
 #import "FLFinisher.h"
+#import "FLPromise.h"
+#import "NSError+FLFailedResult.h"
+#import "FLSuccessfulResult.h"
 
 @interface FLPromise ()
 - (void) setFinishedWithResult:(FLPromisedResult) result;

@@ -8,6 +8,7 @@
 //
 
 #import "FLPromise.h"
+#import "NSError+FLFailedResult.h"
 
 @interface FLPromise ()
 @property (readwrite, strong) FLPromisedResult result;
