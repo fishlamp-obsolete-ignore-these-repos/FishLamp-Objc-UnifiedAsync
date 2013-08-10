@@ -8,6 +8,7 @@
 //
 
 #import "FLPerformSelectorOperation.h"
+#import "FLSuccessfulResult.h"
 
 @implementation FLPerformSelectorOperation
 

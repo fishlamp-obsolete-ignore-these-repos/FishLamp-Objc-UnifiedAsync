@@ -9,8 +9,9 @@
 
 #import "FLOperationQueue.h"
 #import "FLPerformSelectorOperation.h"
-#import "FLCollectionIterator.h"
-#import <FishLampCore/FLOrderedCollection.h>
+
+#import <FishLampContainers/FLCollectionIterator.h>
+#import <FishLampContainers/FLOrderedCollection.h>
 
 
 #if DEBUG

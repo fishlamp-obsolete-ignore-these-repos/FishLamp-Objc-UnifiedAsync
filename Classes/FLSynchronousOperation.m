@@ -10,7 +10,8 @@
 #import "FLSynchronousOperation.h"
 #import "FLFinisher.h"
 #import "FLAsyncQueue.h"
-#import "FLObjectStorage.h"
+#import "FLSuccessfulResult.h"
+#import "NSError+FLFailedResult.h"
 
 @interface FLSynchronousOperation ()
 @end

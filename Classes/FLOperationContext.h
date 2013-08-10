@@ -8,7 +8,6 @@
 //
 
 #import "FLFinisher.h"
-#import "FLObservable.h"
 
 @class FLOperation;
 @class FLFifoAsyncQueue;

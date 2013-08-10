@@ -8,7 +8,12 @@
 //
 
 #import "FLOperation.h"
-#import "FLBroadcaster.h"
+#import "FLDispatchQueue.h"
+#import "FLOperationContext.h"
+#import "FLPromise.h"
+#import "FLSuccessfulResult.h"
+
+#import <FishLampLogger/FishLampLogger.h>
 
 @interface FLOperation ()
 @property (readwrite, assign, getter=wasCancelled) BOOL cancelled;

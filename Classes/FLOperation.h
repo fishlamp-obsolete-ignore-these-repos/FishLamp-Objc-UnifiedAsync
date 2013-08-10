@@ -10,7 +10,6 @@
 #import "FLAsyncBlockTypes.h"
 #import "FLFinisher.h"
 #import "FLDispatchable.h"
-#import "FLObservable.h"
 #import "FLPromisedResult.h"
 
 @class FLOperationContext;
