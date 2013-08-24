@@ -156,7 +156,7 @@ NSString* const FLWorkerContextOpened = @"FLWorkerContextOpened";
             [operation.context removeOperation:operation];
         }
         [operation wasAddedToContext:self];
-        [operation.observers addObserver:self.nonretained_fl];
+        [operation.observers addObserver:[FLNonretainedObject nonretainedObject:self]];
     }
 
     [self didAddOperation:operation];

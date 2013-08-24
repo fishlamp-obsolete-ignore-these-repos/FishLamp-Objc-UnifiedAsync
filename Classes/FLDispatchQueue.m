@@ -185,7 +185,7 @@ static void * const s_queue_key = (void*)&s_queue_key;
 
     __block NSError* error = nil;
     
-    block = FLCopyWithAutorelease(block);
+    FLPrepareBlockForFutureUse(block);
     
     dispatch_sync(self.dispatch_queue_t, ^{
         @try {
@@ -200,11 +200,14 @@ static void * const s_queue_key = (void*)&s_queue_key;
 }
 
 - (FLPromisedResult) runFinisherBlockSynchronously:(fl_finisher_block_t) block {
+
+    __block FLPromisedResult outResult = nil;
+
+    FLFinisher* finisher = [FLFinisher finisherWithBlock:^(FLPromisedResult result) {
+        outResult = FLRetain(result);
+    }];
     
-    FLFinisher* finisher = [FLFinisher finisher];
-    FLPromise* promise = [finisher addPromise];
-    
-    block = FLCopyWithAutorelease(block);
+    FLPrepareBlockForFutureUse(block);
     
     dispatch_sync(self.dispatch_queue_t, ^{
         @try {
@@ -215,15 +218,15 @@ static void * const s_queue_key = (void*)&s_queue_key;
         }
     });
     
-    return promise.result;
+    return FLAutorelease(outResult);
 }
 
 - (FLPromise*) queueBlock:(fl_block_t) block {
-    return [self queueBlock:block withCompletion:nil];
+    return [self queueBlock:block completion:nil];
 }
 
 - (FLPromise*) queueBlock:(fl_block_t) block
-                withCompletion:(fl_completion_block_t) completion {
+                completion:(fl_completion_block_t) completion {
 
     FLFinisher* finisher = [FLFinisher finisher];
     FLPromise* promise = [finisher addPromiseWithBlock:completion];
@@ -241,7 +244,7 @@ static void * const s_queue_key = (void*)&s_queue_key;
 //}
 
 - (FLPromise*) queueFinishableBlock:(fl_finisher_block_t) block
-                          withCompletion:(fl_completion_block_t) completion {
+                          completion:(fl_completion_block_t) completion {
 
 
     FLFinisher* finisher = [FLFinisher finisher];
@@ -254,27 +257,28 @@ static void * const s_queue_key = (void*)&s_queue_key;
 }
 
 - (FLPromise*) queueFinishableBlock:(fl_finisher_block_t) block {
-    return [self queueFinishableBlock:block withCompletion:nil];
+    return [self queueFinishableBlock:block completion:nil];
 }
 
-- (FLPromise*) queueBlock:(fl_block_t) block
-              withDelay:(NSTimeInterval) delay
-         withCompletion:(fl_completion_block_t) completion {
+- (FLPromise*) queueBlockWithDelay:(NSTimeInterval) delay
+                             block:(fl_block_t) block
+                        completion:(fl_completion_block_t) completion {
 
     FLFinisher* finisher = [FLFinisher finisher];
     FLPromise* promise = [finisher addPromiseWithBlock:completion];
     
     [self queueBlock:block withDelay:delay withFinisher:finisher];
     return promise;
-}                          
-- (FLPromise*) queueBlock:(fl_block_t) block
-              withDelay:(NSTimeInterval) delay {
+}
 
-    return [self queueBlock:block withDelay:delay withCompletion:nil];
+
+- (FLPromise*) queueBlockWithDelay:(NSTimeInterval) delay
+                             block:(fl_block_t) block {
+    return [self queueBlockWithDelay:delay block:block completion:nil];
 }
 
 - (FLPromise*) queueOperation:(id<FLDispatchable>) operation
-             withCompletion:(fl_result_block_t) completion {
+             completion:(fl_result_block_t) completion {
 
     FLAssertNotNil(operation);
     
@@ -295,7 +299,7 @@ static void * const s_queue_key = (void*)&s_queue_key;
 }                  
 
 - (FLPromise*) queueOperation:(id<FLDispatchable>) operation {
-    return [self queueOperation:operation withCompletion:nil];
+    return [self queueOperation:operation completion:nil];
 }
 
 - (FLPromisedResult) runOperationSynchronously:(id<FLDispatchable>) operation {
